@@ -490,12 +490,12 @@ class ControllerSettingStore extends Controller {
 			$data['config_geocode'] = '';
 		}
 
-		if (isset($this->request->post['config_email'])) {
-			$data['config_email'] = $this->request->post['config_email'];
-		} elseif (isset($store_info['config_email'])) {
-			$data['config_email'] = $store_info['config_email'];
+		if (isset($this->request->post['config_email_from'])) {
+			$data['config_email_from'] = $this->request->post['config_email_from'];
+		} elseif (isset($store_info['config_email_from'])) {
+			$data['config_email_from'] = $store_info['config_email_from'];
 		} else {
-			$data['config_email'] = '';
+			$data['config_email_from'] = '';
 		}
 
 		if (isset($this->request->post['config_telephone'])) {
@@ -1020,7 +1020,7 @@ class ControllerSettingStore extends Controller {
 			$this->error['address'] = $this->language->get('error_address');
 		}
 
-		if ((utf8_strlen($this->request->post['config_email']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email'])) {
+		if ((utf8_strlen($this->request->post['config_email_from']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email_from'])) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
 

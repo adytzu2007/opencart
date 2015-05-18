@@ -91,7 +91,7 @@
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
                 <div class="col-sm-10">
-                  <input type="text" name="config_email" value="<?php echo $config_email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+                  <input type="text" name="config_email_from" value="<?php echo $config_email_from; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
                   <?php if ($error_email) { ?>
                   <div class="text-danger"><?php echo $error_email; ?></div>
                   <?php } ?>
@@ -769,7 +769,7 @@ $('select[name=\'config_template\']').on('change', function() {
 });
 
 $('select[name=\'config_template\']').trigger('change');
-//--></script> 
+//--></script>
   <script type="text/javascript"><!--
 $('select[name=\'config_country_id\']').on('change', function() {
 	$.ajax({
@@ -787,11 +787,11 @@ $('select[name=\'config_country_id\']').on('change', function() {
 			if (json['zone'] && json['zone'] != '') {
 				for (i = 0; i < json['zone'].length; i++) {
 					html += '<option value="' + json['zone'][i]['zone_id'] + '"';
-					
+
 					if (json['zone'][i]['zone_id'] == '<?php echo $config_zone_id; ?>') {
 						html += ' selected="selected"';
 					}
-					
+
 					html += '>' + json['zone'][i]['name'] + '</option>';
 				}
 			} else {

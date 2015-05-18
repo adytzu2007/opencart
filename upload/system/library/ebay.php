@@ -341,7 +341,7 @@ final class Ebay {
 	}
 
 	public function notifyAdmin($subject, $message) {
-		$this->log('Sending email to: ' . $this->config->get('config_email') . ' - notifyAdmin()');
+		$this->log('Sending email to: ' . $this->config->get('config_email_to') . ' - notifyAdmin()');
 
 		if (version_compare(VERSION, '2.0.2', '<')) {
 			$mail = new Mail($this->config->get('config_mail'));
@@ -356,8 +356,8 @@ final class Ebay {
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 		}
 
-		$mail->setTo($this->config->get('config_email'));
-		$mail->setFrom($this->config->get('config_email'));
+		$mail->setTo($this->config->get('config_email_to'));
+		$mail->setFrom($this->config->get('config_email_from'));
 		$mail->setSender($this->config->get('config_name'));
 		$mail->setSubject($subject);
 		$mail->setText($message);

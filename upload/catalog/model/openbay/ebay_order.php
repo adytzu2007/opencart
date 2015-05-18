@@ -241,7 +241,7 @@ class ModelOpenbayEbayOrder extends Model{
 				$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
 				$mail->setTo($order_info['email']);
-				$mail->setFrom($this->config->get('config_email'));
+				$mail->setFrom($this->config->get('config_email_from'));
 				$mail->setSender($order_info['store_name']);
 				$mail->setSubject($subject);
 				$mail->setText($message);
@@ -517,7 +517,7 @@ class ModelOpenbayEbayOrder extends Model{
 					}
 
 					$mail->setTo($order_info['email']);
-					$mail->setFrom($this->config->get('config_email'));
+					$mail->setFrom($this->config->get('config_email_from'));
 					$mail->setSender($order_info['store_name']);
 					$mail->setSubject($subject);
 					$mail->setHtml($html);
