@@ -573,6 +573,7 @@ class ControllerSaleOrder extends Controller {
 			$data['comment'] = $order_info['comment'];
 			$data['affiliate_id'] = $order_info['affiliate_id'];
 			$data['affiliate'] = $order_info['affiliate_firstname'] . ' ' . $order_info['affiliate_lastname'];
+			$data['currency_code'] = $order_info['currency_code'];
 		} else {
 			$data['order_id'] = 0;
 			$data['store_id'] = '';
