@@ -50,7 +50,7 @@ class ModelAccountCustomer extends Model {
 		$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 			
 		$mail->setTo($data['email']);
-		$mail->setFrom($this->config->get('config_email'));
+		$mail->setFrom($this->config->get('config_email_from'));
 		$mail->setSender(html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
 		$mail->setSubject($subject);
 		$mail->setText($message);
@@ -75,8 +75,8 @@ class ModelAccountCustomer extends Model {
 			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 			
-			$mail->setTo($this->config->get('config_email'));
-			$mail->setFrom($this->config->get('config_email'));
+			$mail->setTo($this->config->get('config_email_to'));
+			$mail->setFrom($this->config->get('config_email_from'));
 			$mail->setSender(html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode($this->language->get('text_new_customer'), ENT_QUOTES, 'UTF-8'));
 			$mail->setText($message);

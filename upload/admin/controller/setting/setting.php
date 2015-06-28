@@ -493,10 +493,16 @@ class ControllerSettingSetting extends Controller {
 			$data['config_geocode'] = $this->config->get('config_geocode');
 		}
 
-		if (isset($this->request->post['config_email'])) {
-			$data['config_email'] = $this->request->post['config_email'];
+		if (isset($this->request->post['config_email_from'])) {
+			$data['config_email_from'] = $this->request->post['config_email_from'];
 		} else {
-			$data['config_email'] = $this->config->get('config_email');
+			$data['config_email_from'] = $this->config->get('config_email_from');
+		}
+
+		if (isset($this->request->post['config_email_to'])) {
+			$data['config_email_to'] = $this->request->post['config_email_to'];
+		} else {
+			$data['config_email_to'] = $this->config->get('config_email_to');
 		}
 
 		if (isset($this->request->post['config_telephone'])) {
@@ -1309,8 +1315,12 @@ class ControllerSettingSetting extends Controller {
 			$this->error['address'] = $this->language->get('error_address');
 		}
 
-		if ((utf8_strlen($this->request->post['config_email']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email'])) {
-			$this->error['email'] = $this->language->get('error_email');
+		if ((utf8_strlen($this->request->post['config_email_from']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email_from'])) {
+			$this->error['email_from'] = $this->language->get('error_email');
+		}
+
+		if ((utf8_strlen($this->request->post['config_email_to']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['config_email_to'])) {
+			$this->error['email_to'] = $this->language->get('error_email');
 		}
 
 		if ((utf8_strlen($this->request->post['config_telephone']) < 3) || (utf8_strlen($this->request->post['config_telephone']) > 32)) {

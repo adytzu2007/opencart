@@ -122,7 +122,7 @@ class ModelCheckoutVoucher extends Model {
 				$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
 				$mail->setTo($voucher['to_email']);
-				$mail->setFrom($this->config->get('config_email'));
+				$mail->setFrom($this->config->get('config_email_from'));
 				$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
 				$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $voucher['from_name']), ENT_QUOTES, 'UTF-8'));
 				$mail->setHtml($html);

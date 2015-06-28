@@ -573,7 +573,6 @@ class ControllerSaleOrder extends Controller {
 			$data['comment'] = $order_info['comment'];
 			$data['affiliate_id'] = $order_info['affiliate_id'];
 			$data['affiliate'] = $order_info['affiliate_firstname'] . ' ' . $order_info['affiliate_lastname'];
-			$data['currency_code'] = $order_info['currency_code'];
 		} else {
 			$data['order_id'] = 0;
 			$data['store_id'] = '';
@@ -1591,12 +1590,12 @@ class ControllerSaleOrder extends Controller {
 
 				if ($store_info) {
 					$store_address = $store_info['config_address'];
-					$store_email = $store_info['config_email'];
+					$store_email = $store_info['config_email_from'];
 					$store_telephone = $store_info['config_telephone'];
 					$store_fax = $store_info['config_fax'];
 				} else {
 					$store_address = $this->config->get('config_address');
-					$store_email = $this->config->get('config_email');
+					$store_email = $this->config->get('config_email_from');
 					$store_telephone = $this->config->get('config_telephone');
 					$store_fax = $this->config->get('config_fax');
 				}
@@ -1833,12 +1832,12 @@ class ControllerSaleOrder extends Controller {
 
 				if ($store_info) {
 					$store_address = $store_info['config_address'];
-					$store_email = $store_info['config_email'];
+					$store_email = $store_info['config_email_from'];
 					$store_telephone = $store_info['config_telephone'];
 					$store_fax = $store_info['config_fax'];
 				} else {
 					$store_address = $this->config->get('config_address');
-					$store_email = $this->config->get('config_email');
+					$store_email = $this->config->get('config_email_from');
 					$store_telephone = $this->config->get('config_telephone');
 					$store_fax = $this->config->get('config_fax');
 				}

@@ -189,7 +189,7 @@ class ModelSaleCustomer extends Model {
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
 			$mail->setTo($customer_info['email']);
-			$mail->setFrom($this->config->get('config_email'));
+			$mail->setFrom($this->config->get('config_email_from'));
 			$mail->setSender(html_entity_decode($store_name, ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(sprintf($this->language->get('text_approve_subject'), html_entity_decode($store_name, ENT_QUOTES, 'UTF-8')));
 			$mail->setText($message);
@@ -395,7 +395,7 @@ class ModelSaleCustomer extends Model {
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
 			$mail->setTo($customer_info['email']);
-			$mail->setFrom($this->config->get('config_email'));
+			$mail->setFrom($this->config->get('config_email_from'));
 			$mail->setSender(html_entity_decode($store_name, ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(sprintf($this->language->get('text_transaction_subject'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8')));
 			$mail->setText($message);
