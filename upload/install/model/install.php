@@ -41,14 +41,17 @@ class ModelInstall extends Model {
 			$db->query("DELETE FROM `" . $data['db_prefix'] . "setting` WHERE `key` = 'config_email_from'");
 			$db->query("INSERT INTO `" . $data['db_prefix'] . "setting` SET `code` = 'config', `key` = 'config_email_from', value = '" . $db->escape($data['email']) . "'");
 
+			$db->query("DELETE FROM `" . $data['db_prefix'] . "setting` WHERE `key` = 'config_email_to'");
+			$db->query("INSERT INTO `" . $data['db_prefix'] . "setting` SET `code` = 'config', `key` = 'config_email_to', value = '" . $db->escape($data['email']) . "'");
+
 			$db->query("DELETE FROM `" . $data['db_prefix'] . "setting` WHERE `key` = 'config_url'");
 			$db->query("INSERT INTO `" . $data['db_prefix'] . "setting` SET `code` = 'config', `key` = 'config_url', value = '" . $db->escape(HTTP_OPENCART) . "'");
 
 			// Create token to login with
 			$string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-			
+
 			$token = '';
-			
+
 			for ($i = 0; $i < 64; $i++) {
 				$token .= $string[rand(0, strlen($string) - 1)];
 			}
@@ -60,9 +63,9 @@ class ModelInstall extends Model {
 
 			// Create order API user
 			$string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-			
+
 			$api_username = '';
-			
+
 
 			for ($i = 0; $i < 64; $i++) {
 				$api_username .= $string[rand(0, strlen($string) - 1)];

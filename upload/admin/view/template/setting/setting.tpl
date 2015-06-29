@@ -80,8 +80,8 @@
                 <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email_from; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_email_from" value="<?php echo $config_email_from; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
-                  <?php if ($error_email) { ?>
-                  <div class="text-danger"><?php echo $error_email; ?></div>
+                  <?php if ($error_email_from) { ?>
+                  <div class="text-danger"><?php echo $error_email_from; ?></div>
                   <?php } ?>
                 </div>
               </div>
@@ -89,8 +89,8 @@
                 <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email_to; ?></label>
                 <div class="col-sm-10">
                   <input type="text" name="config_email_to" value="<?php echo $config_email_to; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
-                  <?php if ($error_email) { ?>
-                  <div class="text-danger"><?php echo $error_email; ?></div>
+                  <?php if ($error_email_to) { ?>
+                  <div class="text-danger"><?php echo $error_email_to; ?></div>
                   <?php } ?>
                 </div>
               </div>

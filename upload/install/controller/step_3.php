@@ -108,7 +108,8 @@ class ControllerStep3 extends Controller {
 		$data['entry_db_prefix'] = $this->language->get('entry_db_prefix');
 		$data['entry_username'] = $this->language->get('entry_username');
 		$data['entry_password'] = $this->language->get('entry_password');
-		$data['entry_email'] = $this->language->get('entry_email');
+		$data['entry_email_from'] = $this->language->get('entry_email_from');
+		$data['entry_email_to'] = $this->language->get('entry_email_to');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
@@ -136,13 +137,13 @@ class ControllerStep3 extends Controller {
 		} else {
 			$data['error_db_database'] = '';
 		}
-		
+
 		if (isset($this->error['db_port'])) {
 			$data['error_db_port'] = $this->error['db_port'];
 		} else {
 			$data['error_db_port'] = '';
 		}
-		
+
 		if (isset($this->error['db_prefix'])) {
 			$data['error_db_prefix'] = $this->error['db_prefix'];
 		} else {
@@ -161,10 +162,16 @@ class ControllerStep3 extends Controller {
 			$data['error_password'] = '';
 		}
 
-		if (isset($this->error['email'])) {
-			$data['error_email'] = $this->error['email'];
+		if (isset($this->error['email_from'])) {
+			$data['error_email_from'] = $this->error['email_from'];
 		} else {
-			$data['error_email'] = '';
+			$data['error_email_from'] = '';
+		}
+
+		if (isset($this->error['email_to'])) {
+			$data['error_email_to'] = $this->error['email_to'];
+		} else {
+			$data['error_email_to'] = '';
 		}
 
 		$data['action'] = $this->url->link('step_3');
@@ -198,13 +205,13 @@ class ControllerStep3 extends Controller {
 		} else {
 			$data['db_database'] = '';
 		}
-		
+
 		if (isset($this->request->post['db_port'])) {
 			$data['db_port'] = $this->request->post['db_port'];
 		} else {
 			$data['db_port'] = ini_get("mysqli.default_port");
 		}
-		
+
 		if (isset($this->request->post['db_prefix'])) {
 			$data['db_prefix'] = $this->request->post['db_prefix'];
 		} else {
@@ -223,10 +230,16 @@ class ControllerStep3 extends Controller {
 			$data['password'] = '';
 		}
 
-		if (isset($this->request->post['email'])) {
-			$data['email'] = $this->request->post['email'];
+		if (isset($this->request->post['email_from'])) {
+			$data['email_from'] = $this->request->post['email_from'];
 		} else {
-			$data['email'] = '';
+			$data['email_from'] = '';
+		}
+
+		if (isset($this->request->post['email_to'])) {
+			$data['email_to'] = $this->request->post['email_to'];
+		} else {
+			$data['email_to'] = '';
 		}
 
 		$data['mysqli'] = extension_loaded('mysqli');
@@ -257,7 +270,7 @@ class ControllerStep3 extends Controller {
 
 		if (!$this->request->post['db_port']) {
 			$this->error['db_port'] = $this->language->get('error_db_port');
-		}		
+		}
 
 		if ($this->request->post['db_prefix'] && preg_match('/[^a-z0-9_]/', $this->request->post['db_prefix'])) {
 			$this->error['db_prefix'] = $this->language->get('error_db_prefix');
@@ -281,8 +294,12 @@ class ControllerStep3 extends Controller {
 			$this->error['password'] = $this->language->get('error_password');
 		}
 
-		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['email'])) {
-			$this->error['email'] = $this->language->get('error_email');
+		if ((utf8_strlen($this->request->post['email_from']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['email_from'])) {
+			$this->error['email_from'] = $this->language->get('error_email');
+		}
+
+		if ((utf8_strlen($this->request->post['email_to']) > 96) || !preg_match('/^[^\@]+@.*.[a-z]{2,15}$/i', $this->request->post['email_to'])) {
+			$this->error['email_to'] = $this->language->get('error_email');
 		}
 
 		if (!is_writable(DIR_OPENCART . 'config.php')) {

@@ -47,7 +47,7 @@
                 <?php } else { ?>
                 <option value="pgsql"><?php echo $text_pgsql; ?></option>
                 <?php } ?>
-                <?php } ?>                
+                <?php } ?>
               </select>
             </div>
           </div>
@@ -92,14 +92,14 @@
               <div class="text-danger"><?php echo $error_db_port; ?></div>
               <?php } ?>
             </div>
-          </div>          
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-db-prefix"><?php echo $entry_db_prefix; ?></label>
             <div class="col-sm-10">
               <input type="text" name="db_prefix" value="<?php echo $db_prefix; ?>" id="input-db-prefix" class="form-control" />
               <?php if ($error_db_prefix) { ?>
               <div class="text-danger"><?php echo $error_db_prefix; ?></div>
-              <?php } ?>           
+              <?php } ?>
            </div>
           </div>
         </fieldset>
@@ -124,11 +124,20 @@
             </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
+            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email_from; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="email" value="<?php echo $email; ?>" id="input-email" class="form-control" />
-              <?php if ($error_email) { ?>
-              <div class="text-danger"><?php echo $error_email; ?></div>
+              <input type="text" name="email_from" value="<?php echo $email_from; ?>" id="input-email" class="form-control" />
+              <?php if ($error_email_from) { ?>
+              <div class="text-danger"><?php echo $error_email_from; ?></div>
+              <?php } ?>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email_to; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="email_to" value="<?php echo $email_to; ?>" id="input-email" class="form-control" />
+              <?php if ($error_email_to) { ?>
+              <div class="text-danger"><?php echo $error_email_to; ?></div>
               <?php } ?>
             </div>
           </div>
