@@ -259,10 +259,16 @@ class ControllerSettingSetting extends Controller {
 			$data['error_address'] = '';
 		}
 
-		if (isset($this->error['email'])) {
-			$data['error_email'] = $this->error['email'];
+		if (isset($this->error['email_from'])) {
+			$data['error_email_from'] = $this->error['email_from'];
 		} else {
-			$data['error_email'] = '';
+			$data['error_email_from'] = '';
+		}
+
+        if (isset($this->error['email_to'])) {
+			$data['error_email_to'] = $this->error['email_to'];
+		} else {
+			$data['error_email_to'] = '';
 		}
 
 		if (isset($this->error['telephone'])) {
